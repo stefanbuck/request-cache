@@ -1,0 +1,46 @@
+{
+  "name": "request-cache",
+  "version": "0.1.0",
+  "description": "",
+  "keywords": [
+    "request",
+    "cache"
+  ],
+  "homepage": "https://github.com/stefanbuck/request-cache",
+  "bugs": "https://github.com/stefanbuck/request-cache/issues",
+  "author": {
+    "name": "Stefan Buck",
+    "url": "http://stefanbuck.com"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "node tests/run.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/stefanbuck/request-cache.git"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "licenses": "MIT",
+  "dependencies": {
+    "qs": "~0.6.0",
+    "json-stringify-safe": "~5.0.0",
+    "forever-agent": "~0.5.0",
+    "node-uuid": "~1.4.0",
+    "mime": "~1.2.9",
+    "request": "~2.31.0",
+    "graceful-fs": "~2.0.1",
+    "mkdirp": "~0.3.5"
+  },
+  "optionalDependencies": {
+    "tough-cookie": ">=0.12.0",
+    "form-data": "~0.1.0",
+    "tunnel-agent": "~0.3.0",
+    "http-signature": "~0.10.0",
+    "oauth-sign": "~0.3.0",
+    "hawk": "~1.0.0",
+    "aws-sign2": "~0.5.0"
+  }
+}
