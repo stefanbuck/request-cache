@@ -6,6 +6,7 @@ var crypto = require('crypto');
 // Internal libs.
 var debug = require('./utils/debug');
 var file = require('./utils/file');
+var http = require('http');
 
 module.exports = function(req) {
 
@@ -15,29 +16,25 @@ module.exports = function(req) {
 
     if(response) {
 
-      //req.onResponse.apply(this, response);
-      //req.emit('complete', response, 'fromcache: ' + body);
-      //req.close();
+      req.resume();
 
     } else {
 
       req.on('complete', function(response, body) {
-
-        writeCacheFile(req.uri, response, function(err) {
+        writeFile(req.uri, response, function(err) {
+          // TODO handle error earlier it's too late here
           if(err) throw new err;
-          //req.emit('complete', response, 'fromcache: ' + body);
         });
-
-
-      })
+      });
       req.resume();
     }
   });
 }
 
-var writeCacheFile = function (uri, response, cb) {
+var writeFile = function (uri, response, cb) {
+  debug('FileCache.writeFile');
   var cacheFile = getFilename(uri);
-  file.write(cacheFile, response, cb);
+  file.write(cacheFile, JSON.stringify(response), cb);
 }
 
 var readCacheFile = function (uri, cb) {

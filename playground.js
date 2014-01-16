@@ -2,15 +2,19 @@
 
 var getResource = require('./index');
 var debug = require('./utils/debug');
+var fileCacheStore = require('./filecache');
 
 var obj = {
-  uri: 'http://registry.npmjs.org/',
-  useCache: true
+  uri: 'http://registry.npmjs.org/needto',
+  cacheStore: fileCacheStore
 }
 
 getResource(obj, function(error, response, body) {
 
 
-  debug('RESPONSE statusCode: ' + response.statusCode )
+  debug('<<<<<<<<<<<<<<<<<')
+  debug('error: ' + error)
+  debug('statusCode: ' + response.statusCode );
+  debug('body: ' + body );
 
 })
